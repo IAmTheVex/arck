@@ -1,11 +1,11 @@
-import { ShellWrap, Shell, Inject } from "@arck/core/di";
+import { ShellWrap, Shell } from "@arck/core/di";
 import { ConfigLoader } from "@arck/core/config";
 
 @Shell
-export class TestShell extends ShellWrap {
+export class TestShell implements ShellWrap {
   constructor(
     private configLoader: ConfigLoader
-  ) { super(); }
+  ) { }
 
   public run() {
     console.log("this is shell!");

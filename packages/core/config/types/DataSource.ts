@@ -6,7 +6,7 @@ export interface DataSourceInput extends IConfigInput {
 }
 
 export class DataSource extends AbstractConfigType<DataSourceInput> {
-  constructor(input: DataSourceInput) {
+  constructor(public input: DataSourceInput) {
     super(input);
 
     this.input.name = input.name ?? "default";

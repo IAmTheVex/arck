@@ -2,8 +2,8 @@ import Container, { Service } from "./Container";
 
 export const Shell = Service();
 
-export abstract class ShellWrap<T = void, X = void> {
-  abstract run(arg?: X): Promise<T> | T;
+export interface ShellWrap<T = void, X = void> {
+  run(arg?: X): Promise<T> | T;
 }
 
 export class ShellRunner {

@@ -6,4 +6,12 @@ export class AbstractConfigType<T extends IConfigInput> {
   public printInput() {
     console.log(this.input);
   }
+
+  public getChildren() {
+    return this.input.children;
+  }
+
+  public getChildrenOfType<Q>(ctor: { new(...args: any[]): Q }): Q[] {
+    return this.getChildren().filter((x: any) => x instanceof ctor) ?? [];
+  }
 }

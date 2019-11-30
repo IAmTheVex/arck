@@ -1,12 +1,15 @@
-import { Shell, ShellWrap, Inject } from "@arck/core/di";
-import { ConfigLoader } from "@arck/core/config";
+import { Shell, ShellWrap } from "@arck/core/di";
+import { ConfigLoader, DataSource } from "@arck/core/config";
 
 @Shell
-export class ArckShell extends ShellWrap {
-  @Inject() private configLoader?: ConfigLoader;
+export class ArckShell implements ShellWrap {
+
+  constructor(
+    private configLoader: ConfigLoader
+  ) { }
 
   public run() {
     console.log("hello!!");
-    console.log(this.configLoader?.load());
+    console.log(this.configLoader.load().getChildrenOfType(DataSource).find(ds => ds.input.name == "default"));
   }
 }

@@ -6,7 +6,7 @@ import { Config } from "./types/Config";
 
 @Service()
 export class ConfigLoader {
-  private _configsCache: Config[] | undefined;
+  private _configsCache: Config | undefined;
 
   private _confFileName: string = "arck.conf.tsx";
   private configFileNameForDirectory(dir: string): string {
@@ -32,13 +32,13 @@ export class ConfigLoader {
     throw new Error(`Could not locate config file '${this._confFileName}'!`);
   }
 
-  private safeArrayImportResult(imp: any): asserts imp is Config[] {
-    if (!!imp && imp instanceof Array) return;
+  private safeArrayImportResult(imp: any): asserts imp is Config {
+    if (!!imp && imp instanceof Config) return;
 
     throw new Error(`Config file '${this._confFileName}' doesn't have a valid 'default' export!`);
   }
 
-  private loadCurrentConfigFile(): Config[] {
+  private loadCurrentConfigFile(): Config {
     this.safeConfigPath(this.currentConfigFileName);
     let imp = require(this.currentConfigFileName);
 
@@ -48,7 +48,7 @@ export class ConfigLoader {
     return imp.default;
   }
 
-  public load(): Config[] {
+  public load(): Config {
     if (!this._configsCache) {
       this.currentConfigFileName = this.locateConfigPath();
       this._configsCache = this.loadCurrentConfigFile();

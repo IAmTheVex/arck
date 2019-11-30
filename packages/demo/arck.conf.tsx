@@ -3,11 +3,9 @@ import { Config, DataSource } from "@arck/core/config";
 
 import { TestConfig } from "./src/TestConfig";
 
-export default [
+export default (
   <Config>
     <DataSource></DataSource>
-    <TestConfig 
-      caca={123}
-    />
+    <TestConfig caca={123} />
   </Config>
-];
+);

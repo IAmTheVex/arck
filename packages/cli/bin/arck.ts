@@ -1,7 +1,7 @@
 #!/usr/bin/env ts-node
 import "@arck/core";
 
-import Container, { ShellRunner } from "@arck/core/di";
+import { ShellRunner } from "@arck/core/di";
 import { ArckShell } from "../shells/ArckShell";
 
 (async _ => {
