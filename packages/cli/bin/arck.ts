@@ -6,7 +6,7 @@ import { ArckShell } from "../shells/ArckShell";
 
 (async _ => {
   try {
-    console.log(await ShellRunner.run(ArckShell));
+    await ShellRunner.run(ArckShell);
   } catch (ex) {
     console.log("shit!");
     console.log(ex);

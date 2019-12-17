@@ -1,5 +1,6 @@
 import { ShellWrap, Shell } from "@arck/core/di";
 import { ConfigLoader } from "@arck/core/config";
+import {TestConfig} from "../TestConfig";
 
 @Shell
 export class TestShell implements ShellWrap {
@@ -9,6 +10,7 @@ export class TestShell implements ShellWrap {
 
   public run() {
     console.log("this is shell!");
-    console.log(this.configLoader.load());
+    let config = this.configLoader.load();
+    console.log(config.getChildrenOfType(TestConfig));
   }
 }

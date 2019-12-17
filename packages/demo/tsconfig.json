@@ -6,6 +6,8 @@
     "strict": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+    "inlineSourceMap": true,
     "jsx": "react",
     "jsxFactory": "arck.Config.createConfig"
   },

@@ -5,7 +5,8 @@
     "lib": ["esnext"],
     "strict": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "inlineSourceMap": true
   },
   "include": ["**/*.ts", "**/*.tsx"]
 }
