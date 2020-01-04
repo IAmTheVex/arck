@@ -9,7 +9,7 @@
     "strictPropertyInitialization": false,
     "inlineSourceMap": true,
     "jsx": "react",
-    "jsxFactory": "arck.Config.createConfig"
+    "jsxFactory": "arck.Dsl.createDslNode"
   },
   "include": ["src/**/*"]
 }

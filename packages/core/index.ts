@@ -1,3 +1,15 @@
 import "reflect-metadata";
 
-export default "arck is awesome";
+import * as Dsl from "./dsl";
+
+const Arck = {
+    Dsl
+};
+
+export {
+    Dsl,
+
+    Arck
+};
+
+export default Arck;

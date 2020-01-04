@@ -1,2 +1,2 @@
-import awesome from "@arck/core";
-console.log(awesome);
+import arck from "@arck/core";
+import "./test";
