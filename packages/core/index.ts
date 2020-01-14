@@ -1,13 +1,16 @@
 import "reflect-metadata";
 
 import * as Dsl from "./dsl";
+import * as Di from "./di";
 
 const Arck = {
-    Dsl
+    Dsl,
+    Di
 };
 
 export {
     Dsl,
+    Di,
 
     Arck
 };
