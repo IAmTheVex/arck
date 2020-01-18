@@ -1,6 +1,5 @@
 import "./types";
 
-export * from "./tag/DslTagProperties";
-export * from "./tag/DslTagType";
-
+export * from "./tag";
+export * from "./handler";
 export * from "./DslFactory";

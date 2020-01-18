@@ -1,6 +1,5 @@
 import arck from "@arck/core";
-import {DslTagProperties} from "@arck/core/dsl";
-import {DslTag} from "@arck/core/dsl/tag/DslTag";
+import {DslTagProperties, DslTag, DslHandler, DslHandlerRegistry} from "@arck/core/dsl";
 
 class A {
 
@@ -15,9 +14,22 @@ class B extends DslTag<BProperties> {
 
 }
 
+class BHandler extends DslHandler<B> {
+    handle(tag: B) {
+        return tag.properties.children;
+    }
+}
+
+DslHandlerRegistry.register(B, BHandler);
+let x = DslHandlerRegistry.get(B);
+console.log("children", x.handle(<B>
+    cacaca
+</B>));
+
+
 export default (
     <B>
-        {"aaaaaa"}
+        aaaaaa
         {3 + 5}
         {null}
         {new A()}
