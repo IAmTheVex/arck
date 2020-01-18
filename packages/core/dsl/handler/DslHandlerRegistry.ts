@@ -5,7 +5,7 @@ import Container from "../../di";
 
 export class DslHandlerRegistry {
     public static register<T extends DslTag<any>, Q extends DslHandler<T>>(tagConstructor: AnyClassConstructor<T>, handlerConstructor: AnyClassConstructor<Q>) {
-        Container.set(tagConstructor, handlerConstructor);
+        Container.set(tagConstructor, Container.get(handlerConstructor));
     }
 
     public static get<T extends DslTag<any> = DslTag<any>>(tagConstructor: AnyClassConstructor<T>): DslHandler<T> {

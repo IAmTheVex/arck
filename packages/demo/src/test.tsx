@@ -1,5 +1,6 @@
 import arck from "@arck/core";
-import {DslTagProperties, DslTag, DslHandler, DslHandlerRegistry} from "@arck/core/dsl";
+import {DslTagProperties, DslTag, DslHandler, DslHandlerRegistry, DslParser} from "@arck/core/dsl";
+import { Service, Inject } from "@arck/core/di";
 
 class A {
 
@@ -14,18 +15,32 @@ class B extends DslTag<BProperties> {
 
 }
 
+@Service()
+class ABCD {
+    public aa() {
+        console.log("aaaaaa");
+    }
+}
+
+@Service()
 class BHandler extends DslHandler<B> {
+    @Inject() abcd: ABCD;
+
     handle(tag: B) {
-        return tag.properties.children;
+        this.abcd.aa();
+        console.log(tag.properties.children);
     }
 }
 
 DslHandlerRegistry.register(B, BHandler);
-let x = DslHandlerRegistry.get(B);
-console.log("children", x.handle(<B>
-    cacaca
-</B>));
+// let x = DslHandlerRegistry.get(B);
+// console.log("children", x.handle(<B>
+//     cacaca
+// </B>));
 
+new DslParser().parse(<B>
+    cacaca
+</B>);
 
 export default (
     <B>
