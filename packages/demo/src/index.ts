@@ -1,7 +1,7 @@
 import "@arck/core";
 
 import Container, { Service, Inject } from "@arck/core/di";
-import {CodeLoader, GlobalModulePathProvider, LoaderPathProviders} from "@arck/core/reflection";
+import {CodeLoader, LoaderPathProviders} from "@arck/core/reflection";
 
 Container.set("test.key", "bla bla");
 
@@ -24,8 +24,8 @@ class DemoService {
 
     public demo() {
         this.testService.test();
-        console.log(LoaderPathProviders.ProjectModulePath.providePath("abcd"));
-        console.log(this.codeLoader.prepare("arck.tsx").load("abcd"));
+        console.log(LoaderPathProviders.ProjectPath.providePath("arck.tsx"));
+        console.log(this.codeLoader.prepare("arck.tsx").load());
     }
 }
 
