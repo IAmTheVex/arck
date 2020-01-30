@@ -1,21 +1,22 @@
 import {ConfigItem} from "../ConfigItem";
-import {ConfigItemHandler} from "../ConfigItemHandler";
 import {DslHandlerRegistry} from "../../dsl/handler";
 import {ConfigItemProperties} from "../ConfigItemProperties";
+import {ConfigRegistry} from "../ConfigRegistry";
 
 export type ConfigurationChildren = any;
 
 export interface ConfigurationProperties extends ConfigItemProperties<ConfigurationChildren> {
+    name?: string;
 }
 
 export class Configuration extends ConfigItem<ConfigurationProperties> {
+    public name?: string;
 
-}
+    constructor(properties: ConfigurationProperties) {
+        super(properties);
 
-export class ConfigurationHandler extends ConfigItemHandler<Configuration> {
-    handle(tag: Configuration): void {
-        console.log(`[ConfigurationHandler]`);
+        this.name = this.properties.name;
     }
 }
 
-DslHandlerRegistry.register(Configuration, ConfigurationHandler);
+ConfigRegistry.registerDefaultConfigurationHandler(Configuration);

@@ -1,6 +1,8 @@
 import {DslTag} from "../tag";
 import {DslHandler, DslHandlerRegistry} from "../handler";
+import {Service} from "../../di";
 
+@Service()
 export class DslParser {
 
     public parse(rootTag: DslTag<any>) {

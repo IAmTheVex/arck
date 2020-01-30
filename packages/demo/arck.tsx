@@ -1,8 +1,8 @@
 import "@arck/core";
-import { A, B } from "./src/test";
+import { Configuration } from "@arck/core/config";
 
 export default (
-    <B a="caca">
-        {new A()}
-    </B>
+    <Configuration name={"hello!"}>
+
+    </Configuration>
 );
