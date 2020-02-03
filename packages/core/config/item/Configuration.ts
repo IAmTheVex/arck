@@ -2,6 +2,7 @@ import {ConfigItem} from "../ConfigItem";
 import {DslHandlerRegistry} from "../../dsl/handler";
 import {ConfigItemProperties} from "../ConfigItemProperties";
 import {ConfigRegistry} from "../ConfigRegistry";
+import {ConfigItemWrapper} from "../ConfigItemWrapper";
 
 export type ConfigurationChildren = any;
 
@@ -9,14 +10,15 @@ export interface ConfigurationProperties extends ConfigItemProperties<Configurat
     name?: string;
 }
 
-export class Configuration extends ConfigItem<ConfigurationProperties> {
+export class Configuration extends ConfigItem<ConfigurationProperties> { }
+
+export class ConfigurationWrapper extends ConfigItemWrapper<Configuration> {
     public name?: string;
+    constructor(node: Configuration) {
+        super(node);
 
-    constructor(properties: ConfigurationProperties) {
-        super(properties);
-
-        this.name = this.properties.name;
+        this.name = node.properties.name;
     }
 }
 
-ConfigRegistry.registerDefaultConfigurationHandler(Configuration);
+ConfigRegistry.registerDefaultConfigurationHandler(Configuration, ConfigurationWrapper);

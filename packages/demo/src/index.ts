@@ -3,7 +3,7 @@ import "@arck/core";
 import Container, { Service, Inject } from "@arck/core/di";
 import {CodeLoader, LoaderPathProviders} from "@arck/core/reflection";
 import {DslParser} from "@arck/core/dsl";
-import {Configuration} from "@arck/core/config";
+import {Configuration, ConfigurationWrapper} from "@arck/core/config";
 
 Container.set("test.key", "bla bla");
 
@@ -29,7 +29,15 @@ class DemoService {
         this.testService.test();
         let config = this.codeLoader.prepare("arck.tsx").load<Configuration>();
         this.dslParser.parse(config);
+    }
+}
 
+@Service()
+class TestShell {
+    @Inject() config: ConfigurationWrapper;
+
+    public test() {
+        console.log(this.config.name);
     }
 }
 
