@@ -1,2 +1,3 @@
 import "@arck/core";
-export default "architect!";
+
+export * from "./shell";

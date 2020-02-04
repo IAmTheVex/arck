@@ -4,6 +4,7 @@ import Container, { Service, Inject } from "@arck/core/di";
 import {CodeLoader, LoaderPathProviders} from "@arck/core/reflection";
 import {DslParser} from "@arck/core/dsl";
 import {Configuration, ConfigurationWrapper} from "@arck/core/config";
+import {Shell, RunnableShell, ShellRunner} from "@arck/architect/shell";
 
 Container.set("test.key", "bla bla");
 
@@ -16,29 +17,42 @@ class TestService {
     }
 }
 
-@Service()
-class DemoService {
-    constructor(
-        private testService: TestService,
-        private codeLoader: CodeLoader,
-        private dslParser: DslParser
-    ) {
-    }
+@Shell()
+class DemoShell extends RunnableShell<{ a: number, b: number }, { sum: number }> {
+    @Inject() test: TestService;
 
-    public demo() {
-        this.testService.test();
-        let config = this.codeLoader.prepare("arck.tsx").load<Configuration>();
-        this.dslParser.parse(config);
+    async run({a, b}: { a: number, b: number }) {
+        this.test.test();
+        return {sum: a + b};
     }
 }
 
-@Service()
-class TestShell {
-    @Inject() config: ConfigurationWrapper;
+ShellRunner.run<DemoShell, { a: number, b: number }, { sum: number }>(DemoShell, { a: 3, b: 5 }).then(console.log);
 
-    public test() {
-        console.log(this.config.name);
-    }
-}
-
-Container.get(DemoService).demo();
+//
+// @Service()
+// class DemoService {
+//     constructor(
+//         private testService: TestService,
+//         private codeLoader: CodeLoader,
+//         private dslParser: DslParser
+//     ) {
+//     }
+//
+//     public demo() {
+//         this.testService.test();
+//         let config = this.codeLoader.prepare("arck.tsx").load<Configuration>();
+//         this.dslParser.parse(config);
+//     }
+// }
+//
+// @Service()
+// class TestShell {
+//     @Inject() config: ConfigurationWrapper;
+//
+//     public test() {
+//         console.log(this.config.name);
+//     }
+// }
+//
+// Container.get(DemoService).demo();
