@@ -9,7 +9,7 @@ export class GlobalModulePathProvider extends LoaderPathProvider {
     private cache?: string;
 
     private getGlobalPath(): string {
-        return execSync("npm root -g").toString('ascii').trim();
+        return execSync("npm root -g").toString("ascii").trim();
     }
 
     public providePath(requestedPath: string): string {

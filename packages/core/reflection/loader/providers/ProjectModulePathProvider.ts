@@ -33,7 +33,7 @@ export class ProjectModulePathProvider extends LoaderPathProvider {
         let currentLookupPath = this.moduleDirectoryNameForProjectDirectory(currentDirectory);
         while (currentDirectory != "/") {
             if (fs.existsSync(currentLookupPath)) break;
-            currentDirectory = path.join(currentDirectory, '..');
+            currentDirectory = path.join(currentDirectory, "..");
             currentLookupPath = this.moduleDirectoryNameForProjectDirectory(currentDirectory);
         }
         this.cache = fs.existsSync(currentLookupPath) ? currentLookupPath : undefined;

@@ -11,7 +11,7 @@ export class CodeChunk {
     public load<T = any>(propertyName: string = "default"): T {
         try {
             let module = require(this.path);
-            if(typeof module[propertyName] == 'undefined') {
+            if(typeof module[propertyName] == "undefined") {
                 throw `The loaded code chunk's module does not contain the '${propertyName}' property!`;
             }
 

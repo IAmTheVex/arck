@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "lib": ["esnext"],
+    "strict": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "inlineSourceMap": true
+  },
+  "include": ["**/*.ts", "**/*.tsx"]
+}

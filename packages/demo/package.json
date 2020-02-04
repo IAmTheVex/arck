@@ -1,8 +1,7 @@
 {
   "name": "demo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Arck demo project",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node ./src/index.ts",
@@ -10,8 +9,31 @@
   },
   "author": "",
   "license": "ISC",
+  "main": "src/cli.ts",
+  "oclif": {
+    "commands": "./src/commands",
+    "bin": "arck-demo",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@arck/cli",
+      "@arck/architect"
+    ]
+  },
+  "bin": {
+    "arck-demo": "./bin/run"
+  },
+  "files": [
+    "/bin",
+    "/src",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
   "dependencies": {
+    "@arck/cli": "^1.0.0",
     "@arck/core": "^1.0.0",
+    "@oclif/command": "^1.5.19",
+    "@oclif/config": "^1.13.3",
+    "@oclif/plugin-help": "^2.2.3",
     "reflect-metadata": "^0.1.13",
     "typescript": "^3.7.2"
   },

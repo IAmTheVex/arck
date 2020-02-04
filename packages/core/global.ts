@@ -7,5 +7,5 @@ declare global {
 }
 
 export function makeGlobalExecutable(Arck: any) {
-    global._arck = Arck;
+    if(!global._arck) global._arck = Arck;
 }
