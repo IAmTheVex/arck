@@ -1,6 +1,8 @@
-import { Command, flags } from "@arck/cli";
+import { Interface } from "@arck/cli";
+import { CommandWrapper } from "@arck/cli/wrapper";
+import {HelloCommandShell} from "../shells/commands/HelloCommandShell";
 
-export default class Hello extends Command {
+export default class HelloCommand extends CommandWrapper {
     static description = "just a simple command";
 
     static examples = [
@@ -10,22 +12,26 @@ hello world from ./src/hello.ts!
     ];
 
     static flags = {
-        help: flags.help({ char: "h" }),
+        help: Interface.flags.help({ char: "h" }),
         // flag with a value (-n, --name=VALUE)
-        name: flags.string({ char: "n", description: "name to print" }),
+        name: Interface.flags.string({ char: "n", description: "name to print" }),
         // flag with no value (-f, --force)
-        force: flags.boolean({ char: "f" })
+        force: Interface.flags.boolean({ char: "f" })
     };
 
     static args = [{ name: "file" }];
 
-    async run() {
-        const { args, flags } = this.parse(Hello);
+    public file?: string;
+    public name: string;
+    public force: boolean;
 
-        const name = flags.name || "world";
-        this.log(`hello ${name} from ./src/commands/hello.ts`);
-        if (args.file && flags.force) {
-            this.log(`you input --force and --file: ${args.file}`);
-        }
+    async run() {
+        const { args, flags } = this.parse(HelloCommand);
+
+        this.name = flags.name || "world";
+        this.file = args.file;
+        this.force = flags.force;
+
+        await this.passExecutionToShell(HelloCommandShell);
     }
 }

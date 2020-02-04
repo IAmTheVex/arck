@@ -17,7 +17,9 @@
   "oclif": {
     "commands": "./commands",
     "topics": {
-      "arck": { "description": "arck utilities" }
+      "arck": {
+        "description": "arck utilities"
+      }
     }
   },
   "devDependencies": {
@@ -25,6 +27,7 @@
     "ts-node": "^8.5.4"
   },
   "dependencies": {
+    "@arck/architect": "^1.0.0",
     "@arck/core": "^1.0.0",
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
