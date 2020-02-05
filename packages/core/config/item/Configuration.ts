@@ -4,7 +4,7 @@ import {ConfigItemProperties} from "../ConfigItemProperties";
 import {ConfigRegistry} from "../ConfigRegistry";
 import {ConfigItemWrapper} from "../ConfigItemWrapper";
 
-export type ConfigurationChildren = any;
+export type ConfigurationChildren = any[];
 
 export interface ConfigurationProperties extends ConfigItemProperties<ConfigurationChildren> {
     name?: string;

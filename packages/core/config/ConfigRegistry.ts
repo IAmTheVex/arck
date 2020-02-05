@@ -22,7 +22,7 @@ export class ConfigRegistry {
         Container.set(constructor, instance);
     }
 
-    public static get<T extends ConfigItem<any>>(constructor: AnyClassConstructor<T>): T {
+    public static get<T extends ConfigItemWrapper<any>>(constructor: AnyClassConstructor<T>): T {
         return (<any>Container.get(constructor)) as T;
     }
 }

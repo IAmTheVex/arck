@@ -1,14 +1,17 @@
 import "@arck/core";
 
 import * as Shell from "./shell";
+import * as Config from "./config";
 
 const Architect = {
-    Shell
+    Shell,
+    Config
 };
 
 export {
     Shell,
-
+    Config,
+    
     Architect
 };
 

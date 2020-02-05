@@ -1,3 +1,3 @@
 export interface DslTagProperties<TChildren = any> {
-    children?: TChildren | TChildren[];
+    children?: TChildren;
 }
