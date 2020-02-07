@@ -4,9 +4,8 @@
   "description": "Arck demo project",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node ./src/index.ts",
-    "tarck": "arck",
-    "architect:shell:SimpleRunnableShell": "bin\\run arck:architect:run -s SimpleRunnableShell"
+    "debug": "ts-node ./src/debug.ts",
+    "architect:shell:SimpleRunnableShell": "arck-demo arck:architect:run -s SimpleRunnableShell"
   },
   "author": "",
   "license": "ISC",
