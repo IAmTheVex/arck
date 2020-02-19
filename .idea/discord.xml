@@ -5,4 +5,7 @@
     <option name="nameOverrideEnabled" value="true" />
     <option name="description" value="@arck - Backend magician" />
   </component>
+  <component name="ProjectNotificationSettings">
+    <option name="askShowProject" value="false" />
+  </component>
 </project>
