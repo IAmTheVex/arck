@@ -1,4 +1,9 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env node
+
+// speed up ts-node
+process.env['TS_NODE_TRANSPILE_ONLY'] = true;
+
+require("ts-node/register");
 
 require('@oclif/command').run()
 .then(require('@oclif/command/flush'))
