@@ -1,0 +1,40 @@
+{
+  "name": "@arck/storage",
+  "version": "1.0.0",
+  "description": "Arck Storage",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Laurentiu Ciobanu | vex",
+  "license": "ISC",
+  "files": [
+    "/commands",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/yarn.lock"
+  ],
+  "oclif": {
+    "commands": "./commands",
+    "topics": {
+      "arck:storage": {
+        "description": "arck storage utilities"
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.1.0",
+    "@types/lowdb": "^1.0.9",
+    "@types/node": "^12.12.14",
+    "ts-node": "^8.5.4"
+  },
+  "dependencies": {
+    "@arck/cli": "^1.0.0",
+    "@arck/core": "^1.0.0",
+    "fs-extra": "^8.1.0",
+    "lowdb": "^1.0.0",
+    "reflect-metadata": "^0.1.13",
+    "typedi": "^0.8.0",
+    "typescript": "^3.7.2"
+  }
+}

@@ -23,6 +23,16 @@ export class ProjectPathProvider extends LoaderPathProvider {
     }
 
     public providePath(requestedPath: string): string {
+        let p = this.inspectPath(requestedPath);
+
+        if(!fs.existsSync(p)) {
+            throw new LoaderPathProviderError(`Could not locate '${requestedPath}' in the current project!\nFull lookup path: '${p}'.`);
+        }
+
+        return p;
+    }
+
+    public inspectPath(requestedPath: string): string {
         if(!this.cache) {
             this.cache = this.locateProjectPath();
             if(!this.cache) {
@@ -30,11 +40,6 @@ export class ProjectPathProvider extends LoaderPathProvider {
             }
         }
 
-        let p = path.join(this.cache!, requestedPath);
-        if(!fs.existsSync(p)) {
-            throw new LoaderPathProviderError(`Could not locate '${requestedPath}' in the current project!\nFull lookup path: '${p}'.`);
-        }
-
-        return p;
+        return path.join(this.cache!, requestedPath);
     }
 }

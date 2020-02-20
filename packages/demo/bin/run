@@ -1,7 +1,4 @@
-#!/usr/bin/env node
-
-// speed up ts-node
-process.env['TS_NODE_TRANSPILE_ONLY'] = true;
+#!/usr/bin/env NODE_NO_WARNINGS=1 TS_NODE_TRANSPILE_ONLY=true node
 
 require("ts-node/register");
 

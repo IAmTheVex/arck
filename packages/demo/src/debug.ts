@@ -15,7 +15,6 @@ export class DebugRunnableShell extends RunnableShell {
         let config = this.codeLoader.prepare("arck.tsx").load<Configuration>();
         this.dslParser.parse(config);
 
-
         // do what you want in here!
 
         return await ShellRunner.run(Simple2RunnableShell);
