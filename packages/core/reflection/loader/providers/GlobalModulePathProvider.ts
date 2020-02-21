@@ -1,4 +1,4 @@
-import * as fs from "fs";
+import * as fs from "../../../fs";
 import * as path from "path";
 import {execSync} from "child_process";
 
@@ -18,7 +18,7 @@ export class GlobalModulePathProvider extends LoaderPathProvider {
         }
 
         let p = path.join(this.cache!, requestedPath);
-        if(!fs.existsSync(p)) {
+        if(!fs.extra.existsSync(p)) {
             throw new LoaderPathProviderError(`Could not locate '${requestedPath}' in the current project!\nFull lookup path: '${p}'.`);
         }
 

@@ -1,6 +1,6 @@
 import {Service} from "@arck/core/di";
 import {LocalStorageConfig} from "../config";
-import * as fs from "./fs";
+import * as fs from "@arck/core/fs";
 
 import * as low from "lowdb";
 import * as FileSync from "lowdb/adapters/FileSync";

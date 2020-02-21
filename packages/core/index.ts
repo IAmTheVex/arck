@@ -1,5 +1,6 @@
 import "reflect-metadata";
 
+import * as Fs from "./fs";
 import * as Dsl from "./dsl";
 import * as Di from "./di";
 import * as Reflection from "./reflection";
@@ -7,6 +8,7 @@ import * as Reflection from "./reflection";
 import * as Config from "./config";
 
 const Arck = {
+    Fs,
     Dsl,
     Di,
     Reflection,
@@ -15,6 +17,7 @@ const Arck = {
 };
 
 export {
+    Fs,
     Dsl,
     Di,
     Reflection,
