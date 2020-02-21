@@ -11,7 +11,7 @@ export type RunnableShellListChildren = RunnableShellItem[];
 export interface RunnableShellListProperties extends ConfigItemProperties<RunnableShellListChildren> { }
 export class RunnableShellList extends ConfigItem<RunnableShellListProperties> { }
 
-export class RunnableShellListWrapper extends ConfigItemWrapper<RunnableShellList> {
+export class RunnableShellListWrapper extends ConfigItemWrapper<RunnableShellList> implements Omit<RunnableShellListProperties, "children">{
     public items: { [name: string]: RunnableShellItem } = {};
 
     constructor(tag: RunnableShellList) {

@@ -10,7 +10,7 @@ export interface RunnableShellItemProperties extends ConfigItemProperties<Runnab
     parameters?: any;
 }
 
-export class RunnableShellItem extends ConfigItem<RunnableShellItemProperties> {
+export class RunnableShellItem extends ConfigItem<RunnableShellItemProperties> implements Omit<RunnableShellItemProperties, "children"> {
     public name: string;
     public shell: AnyClassConstructor<RunnableShell>;
     public parameters: any;

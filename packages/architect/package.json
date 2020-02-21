@@ -29,7 +29,9 @@
   "dependencies": {
     "@arck/cli": "^1.0.0",
     "@arck/core": "^1.0.0",
+    "@phenomnomnominal/tsquery": "^4.0.0",
     "reflect-metadata": "^0.1.13",
+    "ts-morph": "^6.0.3",
     "typedi": "^0.8.0",
     "typescript": "^3.7.2"
   }
