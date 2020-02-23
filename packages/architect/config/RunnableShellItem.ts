@@ -1,4 +1,4 @@
-import {ConfigItem, ConfigItemProperties, Configuration, ConfigurationWrapper} from "@arck/core/config";
+import {ConfigItem, ConfigItemProperties} from "@arck/core/config";
 import {AnyClassConstructor} from "@arck/core/reflection";
 import {RunnableShell} from "../shell";
 

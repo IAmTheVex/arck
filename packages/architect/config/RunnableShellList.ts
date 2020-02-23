@@ -1,9 +1,5 @@
-import {ConfigItem, ConfigItemProperties} from "@arck/core/config";
-import {ConfigItemWrapper} from "@arck/core/config/ConfigItemWrapper";
+import {ConfigItem, ConfigItemProperties, ConfigItemWrapper, ConfigRegistry} from "@arck/core/config";
 import {RunnableShellItem} from "./RunnableShellItem";
-import {ConfigRegistry} from "@arck/core/config/ConfigRegistry";
-import {AnyClassConstructor} from "@arck/core/reflection";
-import {RunnableShell} from "../shell";
 
 
 export type RunnableShellListChildren = RunnableShellItem[];

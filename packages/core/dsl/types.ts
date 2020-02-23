@@ -1,4 +1,4 @@
-import {DslTagType} from "./tag/DslTagType";
+import {DslTagType} from "./tag";
 
 declare global {
     namespace JSX {
