@@ -32,7 +32,6 @@
     "@arck/core": "^1.0.0",
     "lowdb": "^1.0.0",
     "reflect-metadata": "^0.1.13",
-    "typedi": "^0.8.0",
     "typescript": "^3.7.2"
   }
 }

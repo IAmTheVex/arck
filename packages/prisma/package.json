@@ -1,7 +1,7 @@
 {
-  "name": "@arck/architect",
+  "name": "@arck/prisma",
   "version": "1.0.0",
-  "description": "Arck Architect",
+  "description": "Arck Prisma wrapper",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,8 +17,11 @@
   "oclif": {
     "commands": "./commands",
     "topics": {
-      "arck:architect": {
-        "description": "arck architect utilities"
+      "arck:prisma": {
+        "description": "arck prisma utilities"
+      },
+      "arck:prisma:migrate": {
+        "description": "migration utilities"
       }
     }
   },
@@ -29,9 +32,8 @@
   "dependencies": {
     "@arck/cli": "^1.0.0",
     "@arck/core": "^1.0.0",
-    "@phenomnomnominal/tsquery": "^4.0.0",
+    "@prisma/client": "^2.0.0-preview022",
     "reflect-metadata": "^0.1.13",
-    "ts-morph": "^6.0.3",
     "typescript": "^3.7.2"
   }
 }

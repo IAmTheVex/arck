@@ -1,6 +1,7 @@
 import "@arck/core";
 
 import {Configuration} from "@arck/core/config";
+
 import {
     Runtime,
     RunnableShellList,
@@ -11,7 +12,11 @@ import {
     BuildItem,
     BuildGroupList
 } from "@arck/architect/config";
+
 import {LocalStorage} from "@arck/storage/config";
+
+import {Prisma} from "@arck/prisma/config";
+import {PrismaClient} from "@prisma/client";
 
 import {SimpleRunnableShell} from "./src/shells/SimpleRunnableShell";
 import {Simple2RunnableShell} from "./src/shells/Simple2RunnableShell";
@@ -19,9 +24,12 @@ import {TestBuildShell1, TestBuildShell2} from "./src/shells/build/TestBuildShel
 
 export default (
     <Configuration>
+        <LocalStorage />
+
+        <Prisma rootFolderName="db" provider={() => new PrismaClient()}/>
 
         <Build>
-            <Project configFileName="tsconfig.json" includeFileFromConfigFiles={true} buildCache={true} />
+            <Project configFileName="tsconfig.json" includeFileFromConfigFiles={false} buildCache={true} />
 
             <BuildGroupList>
                 <BuildGroup default>

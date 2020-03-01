@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@types/node": "^12.12.14",
+    "@types/shelljs": "^0.8.6",
     "ts-node": "^8.5.4"
   },
   "dependencies": {
@@ -33,7 +34,7 @@
     "@oclif/config": "^1.13.3",
     "@oclif/plugin-help": "^2.2.3",
     "reflect-metadata": "^0.1.13",
-    "typedi": "^0.8.0",
+    "shelljs": "^0.8.3",
     "typescript": "^3.7.2"
   }
 }

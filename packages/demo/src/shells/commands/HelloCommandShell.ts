@@ -1,6 +1,7 @@
 import {CommandShell} from "@arck/cli/wrapper/CommandShell";
 import {Shell} from "@arck/architect/shell";
 import HelloCommand from "../../commands/hello";
+import sh from "@arck/cli/shell";
 
 @Shell()
 export class HelloCommandShell extends CommandShell<HelloCommand> {
@@ -10,5 +11,7 @@ export class HelloCommandShell extends CommandShell<HelloCommand> {
         if (cmd.file && cmd.force) {
             cmd.log(`you input --force and --file: ${cmd.file}`);
         }
+
+        console.log(sh.ls("."));
     }
 }
