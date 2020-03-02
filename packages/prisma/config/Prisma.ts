@@ -1,6 +1,4 @@
-import {ConfigItem, ConfigItemProperties} from "@arck/core/config";
-import {ConfigItemWrapper} from "@arck/core/config/ConfigItemWrapper";
-import {ConfigRegistry} from "@arck/core/config/ConfigRegistry";
+import {ConfigItem, ConfigItemProperties, ConfigItemWrapper, ConfigRegistry} from "@arck/core/config";
 import {LoaderPathProviders} from "@arck/core/reflection";
 import {PrismaProvider} from "../provider";
 

@@ -4,6 +4,7 @@ import {LocalStorageContainer} from "@arck/storage/local";
 import {Project, CodeGenerator, ProjectCache} from "@arck/architect/build";
 import {DMMFProcessor} from "@arck/prisma/reflection";
 import {Data, DataClient} from "@arck/prisma/data";
+import {HttpServer} from "@arck/http/server";
 
 @Shell()
 export class SimpleRunnableShell extends RunnableShell {
@@ -24,6 +25,9 @@ export class SimpleRunnableShell extends RunnableShell {
 
     @Data()
     private data: DataClient;
+
+    @Inject()
+    private server: HttpServer;
 
     public async run() {
         // let a = 30;
@@ -57,10 +61,12 @@ export class SimpleRunnableShell extends RunnableShell {
         //     }});
         // console.log(await this.data.client.user.count());
 
-        console.log(await this.data.user.count());
+        // console.log(await this.data.user.count());
+        //
+        //
+        // await this.data.disconnect();
 
-
-        await this.data.disconnect();
+        await this.server.listen();
 
         // this.buildCache.classes.invalidate("GeneratedClazz");
         //
@@ -69,5 +75,7 @@ export class SimpleRunnableShell extends RunnableShell {
         // await source.save();
         //
         // console.log(this.buildCache.classes.getOne("GeneratedClazz")?.getSourceFile().getBaseName());
+
+        return "Ready!";
     }
 }

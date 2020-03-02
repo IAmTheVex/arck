@@ -4,7 +4,7 @@
   "description": "Arck demo project",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "ts-node ./src/debug.ts",
+    "debug": " NODE_NO_WARNINGS=1 TS_NODE_TRANSPILE_ONLY=true ts-node ./src/debug.ts",
     "architect:shell:SimpleRunnableShell": "arck-demo arck:architect:run -s SimpleRunnableShell"
   },
   "author": "",
@@ -18,7 +18,8 @@
       "@arck/cli",
       "@arck/architect",
       "@arck/storage",
-      "@arck/prisma"
+      "@arck/prisma",
+      "@arck/http"
     ]
   },
   "bin": {
@@ -33,15 +34,16 @@
   "dependencies": {
     "@arck/cli": "^1.0.0",
     "@arck/core": "^1.0.0",
+    "@arck/http": "^1.0.0",
     "@arck/storage": "^1.0.0",
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
     "@oclif/plugin-help": "^2.2.3",
     "@prisma/client": "^2.0.0-preview022",
-    "reflect-metadata": "^0.1.13",
-    "typescript": "^3.7.2"
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
-    "ts-node": "^8.5.4"
+    "ts-node": "^8.5.4",
+    "typescript": "^3.8.3"
   }
 }

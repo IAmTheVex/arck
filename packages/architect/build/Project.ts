@@ -28,7 +28,7 @@ export class Project {
 
     public query<T extends compiler.Node = compiler.Node>(node: compiler.Node, q: string): T[] { 
         // https://gist.github.com/dsherret/826fe77613be22676778b8c4ba7390e7 
-        return query(node.compilerNode, q) 
+        return query(node.compilerNode as any, q) 
             .map(n => ((node as any)._getNodeFromCompilerNode(n) as T));
     }
 
@@ -36,6 +36,4 @@ export class Project {
         let results = this.query<T>(node, q);
         return results.length ? results[0] : undefined;
     }
-
 }
-

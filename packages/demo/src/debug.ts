@@ -5,6 +5,7 @@ import {Configuration} from "@arck/core/config";
 import {Inject} from "@arck/core/di";
 import {CodeLoader} from "@arck/core/reflection";
 import {DslParser} from "@arck/core/dsl";
+import {SimpleRunnableShell} from "./shells/SimpleRunnableShell";
 
 @Shell()
 export class DebugRunnableShell extends RunnableShell {
@@ -17,11 +18,11 @@ export class DebugRunnableShell extends RunnableShell {
 
         // do what you want in here!
 
-        return await ShellRunner.run(Simple2RunnableShell);
+        return await ShellRunner.run(SimpleRunnableShell);
     }
 }
 
 ShellRunner.run(DebugRunnableShell)
-    .then(result => `Runnable shell exited with (${result})`)
+    .then(result => `Runnable shell returned (${result})`)
     .then(console.log)
     .catch(console.error);
