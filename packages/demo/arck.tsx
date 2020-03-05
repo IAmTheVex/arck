@@ -12,13 +12,14 @@ import {
     BuildItem,
     BuildGroupList
 } from "@arck/architect/config";
+import {LoaderPathProviders} from "@arck/core/reflection";
 
 import {LocalStorage} from "@arck/storage/config";
 
 import {Prisma} from "@arck/prisma/config";
 import {PrismaClient} from "@prisma/client";
 
-import {Http} from "@arck/http/config";
+import {Http, GraphQL, Schema} from "@arck/http/config";
 
 import {SimpleRunnableShell} from "./src/shells/SimpleRunnableShell";
 import {Simple2RunnableShell} from "./src/shells/Simple2RunnableShell";
@@ -28,11 +29,20 @@ import {SimpleLoggerModule} from "./src/modules/SimpleLoggerModule";
 import {HomeController} from "./src/controllers/HomeController";
 import {SimpleLoggerMiddleware} from "./src/middleware/SimpleLoggerMiddleware";
 
+import {UserTypeProvider} from "./src/providers/types/UserTypeProvider";
+import {Context} from "./src/Context";
+import {Security} from "./src/config/Security";
+import {DefaultContextProvider} from "./src/providers/DefaultContextProvider";
+
 export default (
     <Configuration>
         <LocalStorage />
 
         <Prisma rootFolderName="db" provider={() => new PrismaClient()}/>
+
+        <Security
+            jwt={{ secret: "ILOVECATS", expiresIn: "1d" }}
+        />
 
         <Http
             cors development
@@ -41,6 +51,17 @@ export default (
             controllers={[ HomeController ]}
             middlewares={[ SimpleLoggerMiddleware ]}
         />
+
+        <GraphQL>
+            <Schema
+                context={{
+                    name: "Context",
+                    path: LoaderPathProviders.ProjectPath.providePath("src/Context.ts"),
+                    provider: DefaultContextProvider
+                }}
+                types={[ UserTypeProvider ]}
+            />
+        </GraphQL>
 
         <Build>
             <Project configFileName="tsconfig.json" includeFileFromConfigFiles={false} buildCache={true} />

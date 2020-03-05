@@ -5,6 +5,7 @@ import {Project, CodeGenerator, ProjectCache} from "@arck/architect/build";
 import {DMMFProcessor} from "@arck/prisma/reflection";
 import {Data, DataClient} from "@arck/prisma/data";
 import {HttpServer} from "@arck/http/server";
+import {SchemaBuilder} from "@arck/http/graphql/schema";
 
 @Shell()
 export class SimpleRunnableShell extends RunnableShell {
@@ -28,6 +29,9 @@ export class SimpleRunnableShell extends RunnableShell {
 
     @Inject()
     private server: HttpServer;
+
+    @Inject()
+    private schemaBuilder: SchemaBuilder;
 
     public async run() {
         // let a = 30;
@@ -66,7 +70,9 @@ export class SimpleRunnableShell extends RunnableShell {
         //
         // await this.data.disconnect();
 
-        await this.server.listen();
+        // await this.server.listen();
+
+        await this.schemaBuilder.build();
 
         // this.buildCache.classes.invalidate("GeneratedClazz");
         //

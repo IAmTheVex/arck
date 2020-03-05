@@ -2,8 +2,11 @@
   <dictionary name="vex">
     <words>
       <w>arck</w>
+      <w>bcrypt</w>
+      <w>cruds</w>
       <w>dmmf</w>
       <w>prisma</w>
+      <w>typegen</w>
     </words>
   </dictionary>
 </component>

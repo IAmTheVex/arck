@@ -17,9 +17,7 @@
       "@oclif/plugin-help",
       "@arck/cli",
       "@arck/architect",
-      "@arck/storage",
-      "@arck/prisma",
-      "@arck/http"
+      "@arck/prisma"
     ]
   },
   "bin": {
@@ -34,8 +32,11 @@
   "dependencies": {
     "@arck/cli": "^1.0.0",
     "@arck/core": "^1.0.0",
+    "@arck/architect": "^1.0.0",
     "@arck/http": "^1.0.0",
+    "@arck/prisma": "^1.0.0",
     "@arck/storage": "^1.0.0",
+    "@arck/crypto": "^1.0.0",
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
     "@oclif/plugin-help": "^2.2.3",

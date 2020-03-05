@@ -1,0 +1,33 @@
+{
+  "name": "@arck/crypto",
+  "version": "1.0.0",
+  "description": "Arck Crypto utilities",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Laurentiu Ciobanu | vex",
+  "license": "ISC",
+  "files": [
+    "/commands",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/yarn.lock"
+  ],
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/crypto-js": "^3.1.43",
+    "@types/jsonwebtoken": "^8.3.8",
+    "@types/node": "^12.12.14",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@arck/cli": "^1.0.0",
+    "@arck/core": "^1.0.0",
+    "bcryptjs": "^2.4.3",
+    "crypto-js": "^4.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "reflect-metadata": "^0.1.13"
+  }
+}
