@@ -5,6 +5,9 @@
 
 
 # Setup:
+1. Install globally `lerna yarn prisma2 ts-node typescript`
+2. Setup the default project cli alias: 
+
 Add the following alias to your terminal profile
 ```shell script
 alias ad="NODE_NO_WARNINGS=1 TS_NODE_TRANSPILE_ONLY=true ts-node ${PROJECT_PATH}/packages/demo/bin/debug-run.ts"
