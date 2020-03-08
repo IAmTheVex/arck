@@ -1,9 +1,14 @@
 {
   "name": "root",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "packages/*"
+    ]
+  },
   "scripts": {
     "bootstrap": "lerna bootstrap --use-workspaces"
   },

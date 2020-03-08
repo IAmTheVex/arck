@@ -1,7 +1,7 @@
 import "@arck/core";
 
 import {Interface} from "@arck/cli";
-import { CommandWrapper } from "@arck/cli/wrapper";
+import {CommandWrapper} from "@arck/cli/wrapper";
 import sh from "@arck/cli/shell";
 import {LoaderPathProviders} from "@arck/core/reflection";
 
@@ -21,7 +21,7 @@ export default class MigrationUpCommand extends CommandWrapper {
         const { flags } = this.parse(MigrationUpCommand);
 
         sh.cd(LoaderPathProviders.ProjectPath.providePath("db"));
-        let result = sh.exec("prisma2 migrate up --experimental --auto-approve --create-db --verbose", { silent: true });
+        let result = sh.exec("prisma2 migrate up --experimental --auto-approve --create-db --verbose" + (flags.preview ? " --preview" : ""), { silent: true });
 
         console.log(result.replace(/^.*Prisma2.*$/img, "").replace(/^.*Prisma.*$/mg, "").replace(/\n\s*\n/g, '\n\n'));
     }
