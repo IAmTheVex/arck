@@ -1,4 +1,4 @@
-#!/usr/bin/env NODE_NO_WARNINGS=1 TS_NODE_TRANSPILE_ONLY=true node
+#!/usr/bin/env NODE_NO_WARNINGS=1 TS_NODE_TRANSPILE_ONLY=true ts-node
 
 require("ts-node/register");
 

@@ -4,8 +4,7 @@
   "description": "Arck demo project",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": " NODE_NO_WARNINGS=1 TS_NODE_TRANSPILE_ONLY=true ts-node ./src/debug.ts",
-    "architect:shell:SimpleRunnableShell": "arck-demo arck:architect:run -s SimpleRunnableShell"
+    "debug": " NODE_NO_WARNINGS=1 TS_NODE_TRANSPILE_ONLY=true ts-node ./src/debug.ts"
   },
   "author": "",
   "license": "ISC",
@@ -17,13 +16,11 @@
       "@oclif/plugin-help",
       "@arck/cli",
       "@arck/architect",
-      "@arck/storage",
-      "@arck/prisma",
-      "@arck/http"
+      "@arck/prisma"
     ]
   },
   "bin": {
-    "arck-demo": "./bin/run"
+    "arck-demo": "./bin/debug-run.ts"
   },
   "files": [
     "/bin",
