@@ -22,7 +22,8 @@ export class DefaultContextProvider implements ContextProvider<Context> {
                 response
             },
             subscription,
-            data: this.data
+            data: this.data,
+            prisma: this.data
         };
 
         if(subscription.connection && subscription.payload?.authorization) {

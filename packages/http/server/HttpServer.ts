@@ -5,9 +5,10 @@ import {HttpConfig} from "../config";
 import * as http from "http";
 import * as https from "https";
 
-import {useExpressServer} from "../core";
+import {useExpressServer, useContainer} from "../core";
 import {EventsEmitter} from "@arck/core/events";
-import {HttpServerModule} from "./module";
+
+useContainer(Container);
 
 export interface HttpServerEvents {
     beforeBackboneCreate(): void;

@@ -13,6 +13,8 @@ export interface SchemaProperties extends ConfigItemProperties<SchemaChildren> {
         provider: AnyClassConstructor<ContextProvider>;
     };
     types: AnyClassConstructor<TypesProvider>[];
+    enablePlayground?: boolean;
+    enableTracing?: boolean;
 }
 
 export class Schema extends ConfigItem<SchemaProperties> { }

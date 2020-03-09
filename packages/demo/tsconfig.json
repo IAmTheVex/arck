@@ -8,6 +8,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false,
+    "allowSyntheticDefaultImports": true,
     "inlineSourceMap": true,
     "jsx": "react",
     "jsxFactory": "global._arck.Dsl.createDslNode"

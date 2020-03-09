@@ -28,6 +28,14 @@ export class UserTypeProvider implements TypesProvider {
             definition(t) {
                 t.crud.user();
                 t.crud.users();
+
+                t.field("me", {
+                    type: "User",
+                    nullable: true,
+                    resolve: async (_, args, ctx, info) => {
+                        return ctx.user ?? null;
+                    }
+                });
             }
         })
     ];
@@ -51,6 +59,8 @@ export class UserTypeProvider implements TypesProvider {
         name: "Post",
         definition: (t) => {
             t.model.post_id();
+            t.model.author();
+            t.model.title();
         }
     });
 }

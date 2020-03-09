@@ -20,7 +20,7 @@ export class TokenService {
         return tok;
     }
 
-    public generateToken(payload: { id: number}): string {
+    public generateToken(payload: { userId: string }): string {
         return jwt.sign(payload, this.config.settings.jwt.secret, { expiresIn: this.config.settings.jwt.expiresIn });
     }
 

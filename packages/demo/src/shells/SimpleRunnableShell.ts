@@ -6,6 +6,7 @@ import {DMMFProcessor} from "@arck/prisma/reflection";
 import {Data, DataClient} from "@arck/prisma/data";
 import {HttpServer} from "@arck/http/server";
 import {SchemaBuilder} from "@arck/http/graphql/schema";
+import {ApolloServerBuilder} from "@arck/http/graphql/apollo";
 
 @Shell()
 export class SimpleRunnableShell extends RunnableShell {
@@ -33,6 +34,9 @@ export class SimpleRunnableShell extends RunnableShell {
     @Inject()
     private schemaBuilder: SchemaBuilder;
 
+    @Inject()
+    private apolloBuilder: ApolloServerBuilder;
+
     public async run() {
         // let a = 30;
 
@@ -55,7 +59,19 @@ export class SimpleRunnableShell extends RunnableShell {
         // console.log(dmmf.datamodel.models.map(x => x.fields));
 
         // await this.data.client.connect();
-        // await this.data.client.profile.create({ data: {
+        // await this.data.user.create({
+        //     data: {
+        //         email: "laurentiu@thevexis.me",
+        //         name: "laurentiu ciobanu",
+        //         profiles: {
+        //             create: {
+        //                 bio: "simple profile"
+        //             }
+        //         }
+        //     }
+        // });
+
+        // await this.data.profile.create({ data: {
         //         bio: "this is a second simple profile",
         //         user: {
         //             connect: {
@@ -63,16 +79,14 @@ export class SimpleRunnableShell extends RunnableShell {
         //             }
         //         }
         //     }});
-        // console.log(await this.data.client.user.count());
-
         // console.log(await this.data.user.count());
-        //
-        //
         // await this.data.disconnect();
 
-        // await this.server.listen();
+        // console.log(await this.apolloBuilder.build());
 
-        await this.schemaBuilder.build();
+        await this.server.listen();
+
+        // await this.schemaBuilder.build();
 
         // this.buildCache.classes.invalidate("GeneratedClazz");
         //
