@@ -5,6 +5,7 @@
 type Mutation {
   createOnePost(data: PostCreateInput!): Post!
   createOneUser(data: UserCreateInput!): User!
+  emitTest: Test!
 }
 
 """
@@ -100,6 +101,14 @@ type Query {
   me: User
   user(where: UserWhereUniqueInput!): User
   users(after: UserWhereUniqueInput, before: UserWhereUniqueInput, first: Int, last: Int, skip: Int): [User!]!
+}
+
+type Subscription {
+  test: Test!
+}
+
+type Test {
+  t: String!
 }
 
 type User {

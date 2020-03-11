@@ -35,6 +35,7 @@ import {Security} from "./src/config/Security";
 import {DefaultContextProvider} from "./src/providers/DefaultContextProvider";
 import {ApolloServerModule} from "@arck/http/graphql/apollo";
 import {AuthModule} from "./src/modules/AuthModule";
+import {TestTypeProvider} from "./src/providers/types/TestTypeProvider";
 
 export default (
     <Configuration>
@@ -64,8 +65,8 @@ export default (
                     path: LoaderPathProviders.ProjectPath.providePath("src/Context.ts"),
                     provider: DefaultContextProvider
                 }}
-                types={[ UserTypeProvider ]}
-                enablePlayground
+                types={[ UserTypeProvider, TestTypeProvider ]}
+                enablePlayground enableTracing
             />
         </GraphQL>
 

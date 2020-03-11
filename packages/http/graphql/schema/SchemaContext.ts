@@ -1,6 +1,7 @@
 import {express} from "../../express";
 import {ExecutionParams} from "../subscription/engine";
 import {PrismaClient} from "@prisma/client";
+import { PubSub } from "../subscription";
 
 export interface SchemaContext {
     http: {
@@ -11,5 +12,6 @@ export interface SchemaContext {
         connection?: ExecutionParams,
         payload?: any
     },
-    prisma: PrismaClient
+    prisma: PrismaClient,
+    pubSub: PubSub
 }

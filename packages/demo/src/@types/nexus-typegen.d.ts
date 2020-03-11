@@ -102,6 +102,10 @@ export interface NexusGenRootTypes {
     node: NexusGenRootTypes['Post']; // Post!
   }
   Query: {};
+  Subscription: {};
+  Test: { // root type
+    t: string; // String!
+  }
   User: prismaClient.User;
   String: string;
   Int: number;
@@ -128,6 +132,7 @@ export interface NexusGenFieldTypes {
   Mutation: { // field return type
     createOnePost: NexusGenRootTypes['Post']; // Post!
     createOneUser: NexusGenRootTypes['User']; // User!
+    emitTest: NexusGenRootTypes['Test']; // Test!
   }
   PageInfo: { // field return type
     endCursor: string | null; // String
@@ -152,6 +157,12 @@ export interface NexusGenFieldTypes {
     me: NexusGenRootTypes['User'] | null; // User
     user: NexusGenRootTypes['User'] | null; // User
     users: NexusGenRootTypes['User'][]; // [User!]!
+  }
+  Subscription: { // field return type
+    test: NexusGenRootTypes['Test']; // Test!
+  }
+  Test: { // field return type
+    t: string; // String!
   }
   User: { // field return type
     name: string | null; // String
@@ -204,7 +215,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Mutation" | "PageInfo" | "Post" | "PostConnection" | "PostEdge" | "Query" | "User";
+export type NexusGenObjectNames = "Mutation" | "PageInfo" | "Post" | "PostConnection" | "PostEdge" | "Query" | "Subscription" | "Test" | "User";
 
 export type NexusGenInputNames = "PostCreateInput" | "PostCreateManyWithoutAuthorInput" | "PostCreateWithoutAuthorInput" | "PostWhereUniqueInput" | "ProfileCreateManyWithoutUserInput" | "ProfileCreateWithoutUserInput" | "ProfileWhereUniqueInput" | "UserCreateInput" | "UserCreateOneWithoutPostsInput" | "UserCreateWithoutPostsInput" | "UserWhereUniqueInput";
 

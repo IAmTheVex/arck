@@ -6,6 +6,7 @@ import {ExecutionParams} from "@arck/http/graphql/subscription/engine";
 import {Context} from "../Context";
 import {TokenService} from "../services/auth/TokenService";
 import {User} from "@prisma/client";
+import { PubSub } from "@arck/http/graphql/subscription";
 
 @Service()
 export class DefaultContextProvider implements ContextProvider<Context> {
@@ -15,6 +16,8 @@ export class DefaultContextProvider implements ContextProvider<Context> {
     @Inject()
     private tokenService: TokenService;
 
+    private pubSub = new PubSub()
+
     async buildContext(request: express.Request, response: express.Response, subscription: { connection?: ExecutionParams<Context>; payload?: any }): Promise<Context> {
         let ctx: Context = {
             http: {
@@ -23,7 +26,8 @@ export class DefaultContextProvider implements ContextProvider<Context> {
             },
             subscription,
             data: this.data,
-            prisma: this.data
+            prisma: this.data,
+            pubSub: this.pubSub
         };
 
         if(subscription.connection && subscription.payload?.authorization) {
