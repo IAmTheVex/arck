@@ -16,7 +16,7 @@ export class DefaultContextProvider implements ContextProvider<Context> {
     @Inject()
     private tokenService: TokenService;
 
-    private pubSub = new PubSub()
+    private pubSub = new PubSub();
 
     async buildContext(request: express.Request, response: express.Response, subscription: { connection?: ExecutionParams<Context>; payload?: any }): Promise<Context> {
         let ctx: Context = {
@@ -30,12 +30,21 @@ export class DefaultContextProvider implements ContextProvider<Context> {
             pubSub: this.pubSub
         };
 
+        if(!!subscription.connection?.context) {
+            ctx.userId = subscription.connection.context.userId;
+            ctx.user = subscription.connection.context.user;
+
+            return ctx;
+        }
+
         if(subscription.connection && subscription.payload?.authorization) {
             const decodedToken = this.tokenService.validateToken(subscription.payload.autorization);
             if(decodedToken) {
                 ctx.userId = decodedToken.userId;
                 ctx.user = await this.data.user.findOne({ where: { user_id: ctx.userId }}) ?? undefined;
             }
+
+            return ctx;
         }
 
         if(!!(request as any).user) {
