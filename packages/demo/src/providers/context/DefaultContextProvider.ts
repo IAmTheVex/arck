@@ -3,8 +3,8 @@ import {ContextProvider} from "@arck/http/graphql/provider";
 import {Data, DataClient} from "@arck/prisma/data";
 import {express} from "@arck/http/express";
 import {ExecutionParams} from "@arck/http/graphql/subscription/engine";
-import {Context} from "../Context";
-import {TokenService} from "../services/auth/TokenService";
+import {Context} from "../../Context";
+import {TokenService} from "../../services/auth/TokenService";
 import {User} from "@prisma/client";
 import { PubSub } from "@arck/http/graphql/subscription";
 

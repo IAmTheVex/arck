@@ -2,6 +2,7 @@ import {Service} from "@arck/core/di";
 import {PermissionsProvider} from "@arck/http/graphql/provider";
 import {shield, allow, deny} from "@arck/http/graphql/permissions";
 import {GraphError} from "@arck/http/graphql/errors";
+import {isAuthenticated} from "./rules";
 
 @Service()
 export class DefaultPermissionsProvider implements PermissionsProvider {
@@ -9,7 +10,8 @@ export class DefaultPermissionsProvider implements PermissionsProvider {
         return shield({
             Query: {
                 '*': deny,
-                me: allow
+
+                me: isAuthenticated
             }
         },
         {

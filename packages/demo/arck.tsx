@@ -32,11 +32,11 @@ import {SimpleLoggerMiddleware} from "./src/middleware/SimpleLoggerMiddleware";
 import {UserTypeProvider} from "./src/providers/types/UserTypeProvider";
 import {Context} from "./src/Context";
 import {Security} from "./src/config/Security";
-import {DefaultContextProvider} from "./src/providers/DefaultContextProvider";
+import {DefaultContextProvider} from "./src/providers/context/DefaultContextProvider";
 import {ApolloServerModule} from "@arck/http/graphql/apollo";
 import {AuthModule} from "./src/modules/AuthModule";
 import {TestTypeProvider} from "./src/providers/types/TestTypeProvider";
-import {DefaultPermissionsProvider} from "./src/providers/DefaultPermissionsProvider";
+import {DefaultPermissionsProvider} from "./src/providers/permissions/DefaultPermissionsProvider";
 
 export default (
     <Configuration>
