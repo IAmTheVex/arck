@@ -1,8 +1,6 @@
 import {ConfigItem, ConfigItemProperties, ConfigRegistry, ConfigItemWrapper} from "@arck/core/config";
-import {TypesProvider} from "../graphql/provider";
+import {TypesProvider, ContextProvider, PermissionsProvider} from "../graphql/provider";
 import {AnyClassConstructor} from "@arck/core/reflection";
-import {ContextProvider} from "../graphql/provider/ContextProvider";
-import {SchemaContext} from "../graphql/schema";
 
 export type SchemaChildren = undefined;
 
@@ -13,6 +11,7 @@ export interface SchemaProperties extends ConfigItemProperties<SchemaChildren> {
         provider: AnyClassConstructor<ContextProvider>;
     };
     types: AnyClassConstructor<TypesProvider>[];
+    permissions?: AnyClassConstructor<PermissionsProvider>
     enablePlayground?: boolean;
     enableTracing?: boolean;
 }
