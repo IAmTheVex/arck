@@ -25,6 +25,7 @@
   "dependencies": {
     "@arck/cli": "^1.0.0",
     "@arck/core": "^1.0.0",
+    "@testdeck/mocha": "^0.0.6",
     "reflect-metadata": "^0.1.13"
   }
 }
