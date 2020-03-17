@@ -22,6 +22,9 @@
       }
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@types/lowdb": "^1.0.9",
     "@types/node": "^12.12.14",
