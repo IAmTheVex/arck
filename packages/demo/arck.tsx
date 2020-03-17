@@ -38,6 +38,8 @@ import {AuthModule} from "./src/modules/AuthModule";
 import {TestTypeProvider} from "./src/providers/types/TestTypeProvider";
 import {DefaultPermissionsProvider} from "./src/providers/permissions/DefaultPermissionsProvider";
 import {AuthController} from "./src/controllers/AuthController";
+import {GenerateSchema} from "@arck/http/build/schema";
+import {GeneratePrismaClient} from "@arck/prisma/build/codegen";
 
 export default (
     <Configuration>
@@ -78,12 +80,13 @@ export default (
 
             <BuildGroupList>
                 <BuildGroup default>
-                    <BuildItem shell={TestBuildShell1} />
-                    <BuildItem shell={TestBuildShell2} name ="Test2"/>
+                    <BuildItem shell={GeneratePrismaClient}/>
+                    <BuildItem shell={GenerateSchema}/>
                 </BuildGroup>
 
                 <BuildGroup name="OnlyTest1">
                     <BuildItem shell={TestBuildShell1} />
+                    <BuildItem shell={TestBuildShell2} name="Test2"/>
                 </BuildGroup>
             </BuildGroupList>
         </Build>

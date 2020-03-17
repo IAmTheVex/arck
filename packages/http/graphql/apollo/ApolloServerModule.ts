@@ -15,7 +15,6 @@ export class ApolloServerModule implements HttpServerModule {
         server.events.on("afterBackboneCreate", async () => {
             let apollo = await this.apolloBuilder.build();
 
-            console.log("ApolloServerModule:core mounted");
             apollo.applyMiddleware({
                 app: server.backbone
             });
@@ -24,7 +23,6 @@ export class ApolloServerModule implements HttpServerModule {
         server.events.on("afterHttpCreate", async () => {
             let apollo = await this.apolloBuilder.build();
 
-            console.log("ApolloServerModule:subscriptions:http mounted");
             apollo.installSubscriptionHandlers(server.http);
         });
 
@@ -32,7 +30,6 @@ export class ApolloServerModule implements HttpServerModule {
             if(!!server.https) {
                 let apollo = await this.apolloBuilder.build();
 
-                console.log("ApolloServerModule:subscriptions:https mounted");
                 apollo.installSubscriptionHandlers(server.https);
             }
         });

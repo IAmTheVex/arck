@@ -1,6 +1,5 @@
 import "@arck/core";
 import {RunnableShell, Shell, ShellRunner} from "@arck/architect/shell";
-import {Simple2RunnableShell} from "./shells/Simple2RunnableShell";
 import {Configuration} from "@arck/core/config";
 import {Inject} from "@arck/core/di";
 import {CodeLoader} from "@arck/core/reflection";

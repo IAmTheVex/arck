@@ -1,0 +1,4 @@
+{
+  "require": ["source-map-support/register", "ts-node/register"],
+  "extension": ["ts", "tsx"]
+}

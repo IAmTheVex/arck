@@ -14,7 +14,7 @@ export default class MigrationSaveCommand extends CommandWrapper {
 
     static flags = {
         help: Interface.flags.help({ char: "h" }),
-        name: Interface.flags.string({ char: "n", required: true, description: "name of the description"})
+        name: Interface.flags.string({ char: "n", required: true, description: "name of the migration"})
     };
 
     async run() {

@@ -9,6 +9,7 @@
   "author": "Laurentiu Ciobanu | vex",
   "license": "ISC",
   "files": [
+    "**/*.ts",
     "/commands",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json",
