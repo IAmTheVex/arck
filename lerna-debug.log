@@ -1,0 +1,15 @@
+0 silly argv {
+0 silly argv   _: [ 'add' ],
+0 silly argv   dev: true,
+0 silly argv   D: true,
+0 silly argv   scope: 'demo',
+0 silly argv   globs: [],
+0 silly argv   lernaVersion: '3.19.0',
+0 silly argv   '$0': '..\\..\\AppData\\Roaming\\npm\\node_modules\\lerna\\cli.js',
+0 silly argv   pkg: '@typs/sinon'
+0 silly argv }
+1 notice cli v3.19.0
+2 verbose rootPath C:\Users\Laur\WebstormProjects\Arck
+3 info versioning independent
+4 error Error: 404 Not Found - GET https://registry.npmjs.org/@typs%2fsinon - Not found
+4 error     at C:\Users\Laur\WebstormProjects\Arck\node_modules\@evocateur\npm-registry-fetch\check-response.js:104:15
