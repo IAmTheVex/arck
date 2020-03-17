@@ -37,6 +37,7 @@ import {ApolloServerModule} from "@arck/http/graphql/apollo";
 import {AuthModule} from "./src/modules/AuthModule";
 import {TestTypeProvider} from "./src/providers/types/TestTypeProvider";
 import {DefaultPermissionsProvider} from "./src/providers/permissions/DefaultPermissionsProvider";
+import {AuthController} from "./src/controllers/AuthController";
 
 export default (
     <Configuration>
@@ -52,7 +53,7 @@ export default (
             cors development validation
             listen={{ httpPort: 4400 }}
             modules={[ SimpleLoggerModule, AuthModule, ApolloServerModule ]}
-            controllers={[ HomeController ]}
+            controllers={[ HomeController, AuthController ]}
             middlewares={[ SimpleLoggerMiddleware ]}
             currentUserChecker={(action) => {
                 return (action.request as any).user;

@@ -5,15 +5,19 @@ import {nexusPrismaPlugin} from "../prisma";
 import {TypesProvider} from "../provider";
 import {LoaderPathProviders} from "@arck/core/reflection";
 import {applyMiddleware} from "graphql-middleware";
+import {NexusGraphQLSchema} from "nexus/dist/definitions/_types";
 
 @Service()
 export class SchemaBuilder {
+    private _schema?: NexusGraphQLSchema;
+    private _runnableSchema?: NexusGraphQLSchema;
+
     constructor(
         private config: SchemaConfig,
     ) {
     }
 
-    public async build(runnable: boolean = false) {
+    private async getBaseSchema() {
         let types: any[] = [];
         for (let typeProvider of this.config.settings.types) {
             let ts = await Container.get<TypesProvider>(typeProvider).buildTypes();
@@ -55,18 +59,35 @@ export class SchemaBuilder {
                 ]
             },
         });
-        if (runnable) {
+
+        return schema;
+    }
+
+    public async runnableSchema() {
+        if(!this._runnableSchema) {
+            let schema = await this.getBaseSchema();
+
             // should apply permissions
             if (!!this.config.settings.permissions) {
                 let provider = Container.get(this.config.settings.permissions);
                 if (!!provider) {
                     applyMiddleware(schema, provider.buildPermissions());
-                    return schema;
                 }
             }
+
+            this._runnableSchema = schema;
         }
 
-        applyMiddleware(schema);
-        return schema;
+        return this._runnableSchema;
+    }
+
+    public async staticSchema() {
+        if(!this._schema) {
+            let schema = await this.getBaseSchema();
+            applyMiddleware(schema);
+            this._schema = schema;
+        }
+
+        return this._schema;
     }
 }

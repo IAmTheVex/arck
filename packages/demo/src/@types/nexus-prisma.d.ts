@@ -264,8 +264,8 @@ interface NexusPrismaInputs {
   ordering: 'profile_id' | 'bio'
 }
     users: {
-  filtering: 'user_id' | 'email' | 'name' | 'posts' | 'profiles' | 'AND' | 'OR' | 'NOT'
-  ordering: 'user_id' | 'email' | 'name'
+  filtering: 'user_id' | 'email' | 'name' | 'gender' | 'posts' | 'profiles' | 'AND' | 'OR' | 'NOT'
+  ordering: 'user_id' | 'email' | 'name' | 'gender'
 }
 
   },
@@ -335,6 +335,7 @@ interface NexusPrismaTypes {
     user_id: 'String'
     email: 'String'
     name: 'String'
+    gender: 'String'
     posts: 'Post'
     profiles: 'Profile'
 

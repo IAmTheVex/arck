@@ -60,6 +60,7 @@ export interface NexusGenInputs {
   }
   UserCreateInput: { // input type
     email: string; // String!
+    gender?: string | null; // String
     name?: string | null; // String
     posts?: NexusGenInputs['PostCreateManyWithoutAuthorInput'] | null; // PostCreateManyWithoutAuthorInput
     profiles?: NexusGenInputs['ProfileCreateManyWithoutUserInput'] | null; // ProfileCreateManyWithoutUserInput
@@ -71,6 +72,7 @@ export interface NexusGenInputs {
   }
   UserCreateWithoutPostsInput: { // input type
     email: string; // String!
+    gender?: string | null; // String
     name?: string | null; // String
     profiles?: NexusGenInputs['ProfileCreateManyWithoutUserInput'] | null; // ProfileCreateManyWithoutUserInput
     user_id?: string | null; // String
@@ -165,6 +167,7 @@ export interface NexusGenFieldTypes {
     t: string; // String!
   }
   User: { // field return type
+    gender: string | null; // String
     name: string | null; // String
     posts: NexusGenRootTypes['Post'][]; // [Post!]!
     postsConnection: NexusGenRootTypes['PostConnection']; // PostConnection!

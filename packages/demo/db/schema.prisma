@@ -25,6 +25,7 @@ model User {
   user_id  String      @id @default(uuid())
   email    String    @unique
   name     String?
+  gender   String?      @default("male")
   posts    Post[]
   profiles Profile[]
 }

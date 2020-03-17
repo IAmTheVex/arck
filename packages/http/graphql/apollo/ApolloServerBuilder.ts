@@ -23,7 +23,7 @@ export class ApolloServerBuilder {
             this.apollo = new ApolloServer({
                 playground: this.config.settings.enablePlayground ?? false,
                 tracing: this.config.settings.enableTracing ?? false,
-                schema: await this.schemaBuilder.build(true),
+                schema: await this.schemaBuilder.runnableSchema(),
                 // @ts-ignore
                 context: async ({req, res, connection, payload}) => {
                     return await contextProvider.buildContext(req, res, {connection, payload});

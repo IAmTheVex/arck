@@ -82,11 +82,12 @@ export class SimpleRunnableShell extends RunnableShell {
         // console.log(await this.data.user.count());
         // await this.data.disconnect();
 
-        // console.log(await this.apolloBuilder.build());
+        // await this.apolloBuilder.build();
 
+        // get rid of race conditions
+        await this.schemaBuilder.runnableSchema();
         await this.server.listen();
 
-        // await this.schemaBuilder.build();
 
         // this.buildCache.classes.invalidate("GeneratedClazz");
         //

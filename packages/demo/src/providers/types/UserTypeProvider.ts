@@ -33,6 +33,12 @@ export class UserTypeProvider implements TypesProvider {
                     type: "User",
                     nullable: true,
                     resolve: async (_, args, ctx, info) => {
+                        // await (new Promise((resolve) => {
+                        //     setTimeout(() => {
+                        //         resolve();
+                        //     }, 1500);
+                        // }));
+
                         return ctx.user ?? null;
                     }
                 });
@@ -45,6 +51,7 @@ export class UserTypeProvider implements TypesProvider {
         definition: (t) => {
             t.model.user_id();
             t.model.name();
+            t.model.gender();
             t.model.posts();
             t.connection("postsConnection", {
                 type: this.post,

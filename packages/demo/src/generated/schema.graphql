@@ -112,6 +112,7 @@ type Test {
 }
 
 type User {
+  gender: String
   name: String
   posts(after: PostWhereUniqueInput, before: PostWhereUniqueInput, first: Int, last: Int, skip: Int): [Post!]!
   postsConnection(
@@ -132,6 +133,7 @@ type User {
 
 input UserCreateInput {
   email: String!
+  gender: String
   name: String
   posts: PostCreateManyWithoutAuthorInput
   profiles: ProfileCreateManyWithoutUserInput
@@ -145,6 +147,7 @@ input UserCreateOneWithoutPostsInput {
 
 input UserCreateWithoutPostsInput {
   email: String!
+  gender: String
   name: String
   profiles: ProfileCreateManyWithoutUserInput
   user_id: String

@@ -11,7 +11,8 @@ export class DefaultPermissionsProvider implements PermissionsProvider {
             Query: {
                 '*': deny,
 
-                me: isAuthenticated
+                me: isAuthenticated,
+                users: isAuthenticated
             }
         },
         {
