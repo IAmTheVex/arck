@@ -1,6 +1,6 @@
 {
   "name": "@arck/http",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Arck Http Module",
   "main": "index.ts",
   "scripts": {

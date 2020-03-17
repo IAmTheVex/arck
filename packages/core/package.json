@@ -1,11 +1,18 @@
 {
   "name": "@arck/core",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Arck's Core",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "**/*.ts",
+    "/commands",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/yarn.lock"
+  ],
   "author": "Laurentiu Ciobanu | vex",
   "license": "ISC",
   "publishConfig": {

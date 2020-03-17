@@ -1,6 +1,6 @@
 {
   "name": "@arck/test",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Arck Testing utilities",
   "main": "index.ts",
   "scripts": {
@@ -9,6 +9,7 @@
   "author": "Laurentiu Ciobanu | vex",
   "license": "ISC",
   "files": [
+    "**/*.ts",
     "/commands",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json",
