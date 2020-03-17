@@ -1,6 +1,6 @@
 {
   "name": "demo",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Arck demo project",
   "scripts": {
     "test": "mocha tests/**/*test.ts tests/**/*test.tsx",
